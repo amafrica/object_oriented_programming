@@ -42,6 +42,26 @@ class Rover
     end
   end
 
+  def turn_left
+    if @direction == "N"
+      @direction = "W"
+      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    elsif @direction == "W"
+      @direction = "S"
+      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    elsif @direction == "S"
+      @direction = "E"
+      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    else @direction == "E"
+      @direction = "N"
+      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    end
+  end
+
+  def turn_right
+    #code
+  end
+
 end
 
 r2d2 = Rover.new("R2D2", x_coordinate, y_coordinate, direction)
