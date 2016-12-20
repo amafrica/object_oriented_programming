@@ -23,10 +23,26 @@ class Rover
         puts "Oops! There seems to be an error. Try Again."
       end
     end
+    # puts "The Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
   end
 
   def move
-    
+    if @direction == "N"
+      @x_coordinate += 1
+      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    elsif @direction == "W"
+      @y_coordinate -= 1
+      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    elsif @direction == "E"
+      @y_coordinate += 1
+      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    else @direction == "S"
+      @x_coordinate -= 1
+      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    end
   end
 
 end
+
+r2d2 = Rover.new("R2D2", x_coordinate, y_coordinate, direction)
+r2d2.read_instruction(instruction)
