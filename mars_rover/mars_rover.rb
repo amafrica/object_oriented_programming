@@ -28,41 +28,73 @@ class Rover
 
   def move
     if @direction == "N"
-      @x_coordinate += 1
-      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
-    elsif @direction == "W"
-      @y_coordinate -= 1
-      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
-    elsif @direction == "E"
       @y_coordinate += 1
-      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
-    else @direction == "S"
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    elsif @direction == "W"
       @x_coordinate -= 1
-      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    elsif @direction == "E"
+      @x_coordinate += 1
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    else @direction == "S"
+      @y_coordinate -= 1
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
     end
   end
 
   def turn_left
     if @direction == "N"
       @direction = "W"
-      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
     elsif @direction == "W"
       @direction = "S"
-      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
     elsif @direction == "S"
       @direction = "E"
-      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
-    else @direction == "E"
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    elsif @direction == "E"
       @direction = "N"
-      puts "Rover #{name} is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    else
+      "Oops! There seems to be an error. Why don't you try a different direction."
     end
   end
 
   def turn_right
-    #code
+    if @direction == "N"
+      @direction = "E"
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    elsif @direction == "E"
+      @direction = "S"
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    elsif @direction == "S"
+      @direction = "W"
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    elsif @direction == "W"
+      @direction = "N"
+      puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+    else
+      "Oops! There seems to be an error. Why don't you try a different direction."
+    end
   end
 
 end
 
-r2d2 = Rover.new("R2D2", x_coordinate, y_coordinate, direction)
-r2d2.read_instruction(instruction)
+puts "What is your Rover's starting position on the x-axis?"
+x_coordinate = gets.chomp.to_i
+
+puts "What is your Rover's starting position on the y-axis?"
+y_coordinate = gets.chomp.to_i
+
+puts "Enter the direction you're facing: N/W/S/E"
+direction = gets.chomp.upcase
+
+puts "To move your Rover, enter L to turn left, R to turn right & M to move."
+
+instruction = gets.chomp.upcase
+
+puts "Your Rover is at #{x_coordinate}, #{y_coordinate} facing #{direction}."
+
+
+# r2d2 = Rover.new(x_coordinate, y_coordinate, direction)
+# r2d2.read_instruction(instruction)
